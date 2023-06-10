@@ -1,0 +1,67 @@
+.submenu {
+    @apply box-border py-4 px-2  h-full flex flex-col border-r border-solid border-gray-300;
+
+    min-width: 160px;
+
+    h2 {
+        @apply px-2 h-10 text-lg font-semibold;
+
+        min-height: 40px;
+    }
+
+    &-list {
+        @apply overflow-auto h-full py-2 text-sm text-gray-700 space-y-1;
+    }
+
+    &-item {
+        label, li, span {
+            @apply cursor-pointer transition-colors hover:bg-violet-100 rounded;
+        }
+
+        li, span {
+            &.active {
+                @apply bg-violet-200 text-violet-600;
+            }
+        }
+
+        li {
+            @apply px-2 py-1;
+
+            text-indent: 14px;
+        }
+
+        label {
+            @apply relative block pl-2 pr-8 py-1;
+        }
+
+        span {
+            @apply block px-2 py-1;
+        }
+
+        i {
+            @apply transition-transform absolute right-2 top-1/2 -translate-y-1/2 block w-3 h-3;
+
+            background: url(./icon-arrow.svg) no-repeat center;
+        }
+
+        input {
+            @apply hidden;
+        }
+
+        input + div {
+            ul {
+                @apply hidden;
+            }
+        }
+
+        input:checked + div {
+            ul {
+                @apply block;
+            }
+
+            i {
+                @apply rotate-180;
+            }
+        }
+    }
+}

@@ -1,0 +1,70 @@
+.menu {
+    @apply relative z-10 bg-violet-200 h-full divide-y divide-white;
+
+    &-logo {
+        @apply flex justify-center items-center p-2;
+
+        img {
+            @apply w-10 h-10 rounded-full;
+        }
+    }
+
+    &-list {
+        @apply h-full box-border py-2 space-y-2;
+    }
+
+    &-item {
+        @apply relative flex justify-center items-center w-full h-10;
+
+        img {
+            @apply transition-all block w-10 h-10 hover:rounded-lg;
+
+            border-radius: 100%;
+        }
+
+        &.active {
+            @apply before:w-1 before:h-full before:absolute before:left-0 before:top-0 before:bg-violet-500 before:rounded-r-lg;
+
+            .menu-icon {
+                @apply cursor-default;
+            }
+
+            img {
+                @apply rounded-lg;
+            }
+        }
+
+        &:hover {
+            .menu-tips {
+                @apply opacity-100;
+            }
+        }
+    }
+
+    &-icon {
+        @apply cursor-pointer box-border p-2 w-14;
+    }
+
+    &-tips {
+        @apply pointer-events-none transition-opacity opacity-0 absolute left-full top-1/2 -translate-y-1/2 pl-2;
+
+        &::before, &::after {
+            @apply block w-2 h-2 absolute left-1 top-1/2 -translate-y-1/2 rotate-45 bg-white;
+
+            content: '.';
+            text-indent: -9999px;
+        }
+
+        &::before {
+            @apply shadow;
+        }
+
+        &::after {
+            @apply z-20;
+        }
+
+        span {
+            @apply relative z-10 shadow text-xs text-gray-700 p-2 bg-white rounded whitespace-nowrap;
+        }
+    }
+}
